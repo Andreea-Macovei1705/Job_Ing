@@ -1,6 +1,7 @@
 package com.ING.Job.services;
 
 import com.ING.Job.entities.UserEntity;
+import com.ING.Job.exceptions.InvalidNameException;
 import com.ING.Job.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -48,5 +49,12 @@ public class UserService implements UserDetailsService {
     public UserEntity getUserAccount(String username){
         Optional<UserEntity> userOptional = userRepository.findByUsername(username);
         return userOptional.get();
+    }
+
+    public String getUsername(String username){
+        if(username.length() == 0){
+            throw new InvalidNameException("Invalid name!");
+        }
+        return username;
     }
 }
