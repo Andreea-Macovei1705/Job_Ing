@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<p3>Hello Ing Tech</p3>
+<img src="https://secure.meetupstatic.com/photos/event/4/d/5/4/600_469879796.jpeg">
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th> User</th>
+        <th> Age</th>
+        <th> Address</th>
+    </tr>
+    <tr th:each="u:${usersList}">
+        <td th:text="${u.username}"></td>
+        <!--        <td th:text="${usersList.getAge()}">{age}</td>-->
+        <!--        <td th:text="${usersList.getAddress()}">{address}</td>-->
+    </tr>
+</table>
+</body>
+</html>

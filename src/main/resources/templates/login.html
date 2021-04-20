@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<div class="col-md-4">
+    <h3> Intra in cont:</h3>
+    <form action="#" th:action="@{login}" method="post">
+        <table border="1">
+            <tr>
+                <td><label> Username</label>
+                </td>
+                <td><input type="text" name="username"/></td>
+            </tr>
+            <tr>
+                <td><label> Password </label></td>
+                <td><input type="password" name="password"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
