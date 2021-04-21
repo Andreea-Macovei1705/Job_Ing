@@ -11,16 +11,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @SpringBootTest
 public class JobApplicationTests {
-    @ParameterizedTest
+
     @Test
     public void testNullUsernameException() {
-        UserService userService = new UserService();
+
         try {
+            UserService userService = new UserService();
             String username = userService.getUsername("");
-            fail();
         } catch (InvalidNameException inv) {
             String message = inv.getMessage();
-            assertEquals("invalid name!", message);
+            assertEquals("Invalid name!", message);
         }
     }
 

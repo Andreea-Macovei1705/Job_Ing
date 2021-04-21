@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class UserController {
     @Autowired
@@ -19,9 +22,11 @@ public class UserController {
     public String getLoginPage() {
         return "login";
     }
-    @GetMapping(path = "/login/getUsers")
+
+    @GetMapping(path = "/login/getusers")
     public String getLoginPage(Model model) {
-        model.addAttribute("usersList" , new UserEntity());
+        List<UserEntity> usersList = userService.userL();
+        model.addAttribute("usersL", usersList);
         return "/index";
     }
 

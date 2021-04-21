@@ -51,6 +51,14 @@ public class UserService implements UserDetailsService {
         return userOptional.get();
     }
 
+    public void setUserRepository(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+
+    public List<UserEntity> userL(){
+        return userRepository.findAll();
+    }
+
     public String getUsername(String username){
         if(username.length() == 0){
             throw new InvalidNameException("Invalid name!");
