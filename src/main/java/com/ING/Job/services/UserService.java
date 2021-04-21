@@ -46,7 +46,7 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public UserEntity getUserAccount(String username){
+    public UserEntity getUser(String username){
         Optional<UserEntity> userOptional = userRepository.findByUsername(username);
         return userOptional.get();
     }

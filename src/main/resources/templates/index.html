@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            padding: 5px;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: darksalmon;
+        }
+    </style>
 </head>
 <body>
-<p3>Hello Ing Tech</p3>
+<h2>Hello, Ing Tech! </h2>
 <img src="https://secure.meetupstatic.com/photos/event/4/d/5/4/600_469879796.jpeg">
 <br>
 <br>
-<!--<table border="1">-->
-<!--    <tr>-->
-<!--        <th> User</th>-->
-<!--        <th> Age</th>-->
-<!--        <th> Address</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="u:${usersL}">-->
-<!--        <td th:text="${u.username}"></td>-->
-<!--        <td th:text="${u.username}"></td>-->
-<!--        <td th:text="${u.address}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
+<button><a href="/login/getusers">Acceseaza tabel utilizatori-></a></button>
+<table>
+    <tr>
+        <th>Nr crt</th>
+        <th> UserName</th>
+        <th> Age</th>
+        <th> Address</th>
+    </tr>
+    <tr th:each="u:${usersL}">
+        <td th:text="${u.userId}"></td>
+        <td th:text="${u.username}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.address}"></td>
+    </tr>
+</table>
+<br>
+<br>
+<button type="button"><a th:href="@{/logout}">Logout</a></button>
 
 </body>
 </html>
