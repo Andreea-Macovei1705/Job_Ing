@@ -38,6 +38,7 @@ public class UserService implements UserDetailsService {
         }
         throw new UsernameNotFoundException("User not found!");
     }
+
     public void addCustomer(UserEntity user) {
         user.setRole("ROLE_CUSTOMER");
         String password = user.getPassword();
@@ -46,21 +47,21 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public UserEntity getUser(String username){
+    public UserEntity getUser(String username) {
         Optional<UserEntity> userOptional = userRepository.findByUsername(username);
         return userOptional.get();
     }
 
-    public void setUserRepository(UserRepository userRepository){
+    public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public List<UserEntity> userL(){
+    public List<UserEntity> userL() {
         return userRepository.findAll();
     }
 
-    public String getUsername(String username){
-        if(username.length() == 0){
+    public String getUsername(String username) {
+        if (username.length() == 0) {
             throw new InvalidNameException("Invalid name!");
         }
         return username;

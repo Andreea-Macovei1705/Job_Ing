@@ -17,17 +17,18 @@ public class UserSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Override
-    protected  void configure(HttpSecurity http) throws Exception{
-    http.authorizeRequests()
-            .antMatchers("/login", "/register/**", "register/add", "logout", "index").permitAll()
-            .anyRequest().authenticated()
-            .and()
-            .formLogin().loginPage("/login")
-            .and()
-            .logout()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-            .logoutSuccessUrl("/login?logout").permitAll();
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/login", "/register/**", "register/add", "logout", "index").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout").permitAll();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(createDaoAuthentication());
@@ -40,6 +41,7 @@ public class UserSecurityConfig extends WebSecurityConfigurerAdapter {
         daoAuthenticationProvider.setPasswordEncoder(createEncoder());
         return daoAuthenticationProvider;
     }
+
     @Bean
     public BCryptPasswordEncoder createEncoder() {
         return new BCryptPasswordEncoder();

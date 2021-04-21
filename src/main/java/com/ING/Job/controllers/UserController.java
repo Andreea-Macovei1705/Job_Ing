@@ -37,7 +37,7 @@ public class UserController {
     }
 
     @PostMapping("/register/add")
-    public String getRegisterPage(@ModelAttribute UserEntity newUser){
+    public String getRegisterPage(@ModelAttribute UserEntity newUser) {
         userService.addCustomer(newUser);
         return "redirect:/login";
     }
